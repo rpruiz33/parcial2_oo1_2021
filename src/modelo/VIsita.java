@@ -1,6 +1,12 @@
 package modelo;
 
 public class Visita extends Persona {
+@Override
+	public String toString() {
+		return "Visita [empresa=" + empresa + ", id=" + id + ", apellido=" + apellido + ", Nombre=" + Nombre + ", dni="
+				+ dni + "]";
+	}
+
 private String empresa;
 
 public String getEmpresa() {

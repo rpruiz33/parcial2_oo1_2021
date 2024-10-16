@@ -54,12 +54,54 @@ public 	List<Seguridad> traerSeguridad(LocalDate fecha,Persona persona) {
 	List<Seguridad> p=new ArrayList<Seguridad>();
 	
 		for(int i=0;i<lstSeguridad.size();i++) {
-		if(lstSeguridad.get(i).isEntrada()) {
+		if(lstSeguridad.get(i).getPersona().equals(persona)){
 			
 			p.add(lstSeguridad.get(i));
 		}
 		
 	}
 	return p;
+}
+
+public boolean  agregarSeguridad(LocalDate fecha , LocalTime hora, boolean entrada,Persona persona)throws Exception {
+	List <Seguridad> s=new ArrayList<Seguridad>();
+	int id=1;
+	boolean flag=false;
+	if(lstSeguridad.size()>0) {
+		id=(lstSeguridad.get(lstSeguridad.size()-1).getId()+1);
+	}
+
+	Seguridad s1=null;
+
+
+	s=traerSeguridad(fecha,persona );
+	if(!s.isEmpty()) {
+		  s1=s.get(s.size()-1);
+		  if((s1).isEntrada()==entrada) {
+				throw new Exception("dos veces entrada o salida");
+			}
+	}
+	
+	lstSeguridad.add(new Seguridad (id, fecha , hora,persona,  entrada));	
+	
+	flag=true;
+
+	return flag;
+
+
+
+
+}
+
+public List<Seguridad> traerVisitas(LocalDate fecha){
+	List<Seguridad> v=new ArrayList<Seguridad>();
+	for (int i=0;i<lstSeguridad.size();i++) {
+		if(lstSeguridad.get(i).getFecha().isEqual(fecha)) {
+			v.add(lstSeguridad.get(i));
+	}
+	
+	
+}
+	return v;
 }
 }

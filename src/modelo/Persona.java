@@ -36,6 +36,10 @@ public Persona(int id, String apellido, String nombre, int dni) {
 	Nombre = nombre;
 	this.dni = dni;
 }
+public boolean equals(Persona persona) {
+	// TODO Auto-generated method stub
+	return this.getId()==(persona.getId());
+}
 
 
 

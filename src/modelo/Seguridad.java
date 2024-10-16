@@ -41,6 +41,12 @@ public Seguridad(int id, LocalDate fecha, LocalTime hora, Persona persona, boole
 	Persona = persona;
 	this.entrada = entrada;
 }
+@Override
+public String toString() {
+	return "\nSeguridad [id=" + id + ", fecha=" + fecha + ", hora=" + hora + ", Persona=" + Persona + ", entrada="
+			+ entrada + ", getId()=" + getId() + ", getFecha()=" + getFecha() + ", getHora()=" + getHora()
+			+ ", getPersona()=" + getPersona() + ", isEntrada()=" + isEntrada() + "]";
+}
 public boolean isEntrada() {
 	return entrada;
 }
